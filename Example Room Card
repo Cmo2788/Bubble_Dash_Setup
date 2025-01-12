@@ -1,0 +1,103 @@
+type: vertical-stack
+cards:
+  - type: custom:bubble-card
+    card_type: pop-up
+    hash: "#pop-up-office"
+    name: Office
+    sub_button: []
+    icon: phu:rooms-office
+    entity: sensor.temperature_and_humidity_sensor_temperature_3
+    show_attribute: false
+    show_state: true
+  - type: custom:bubble-card
+    card_type: separator
+    name: Lights
+    icon: phu:bulb-group
+  - type: custom:bubble-card
+    card_type: empty-column
+  - type: custom:hue-like-light-card
+    title: Office Lights
+    icon: mdi:ceiling-fan-light
+    slider: mushroom
+    entities:
+      - light.office_lights
+  - type: custom:bubble-card
+    card_type: empty-column
+  - type: custom:bubble-card
+    card_type: separator
+    name: Sensors and Media
+    icon: hue:sync-music
+    sub_button: []
+  - type: custom:bubble-card
+    card_type: media-player
+    entity: media_player.office_echo_dot_3
+    name: Office Echo Dot
+    show_attribute: true
+    attribute: volume_level
+    hide:
+      power_button: true
+  - type: custom:bubble-card
+    card_type: media-player
+    entity: media_player.gaming_pc
+    hide:
+      power_button: true
+    name: Gaming PC
+  - type: custom:bubble-card
+    card_type: button
+    button_type: state
+    entity: binary_sensor.presence_sensor_fp2_175a_presence_sensor_1
+    sub_button:
+      - entity: sensor.presence_sensor_fp2_175a_light_sensor_light_level
+        show_state: true
+        show_name: false
+  - square: true
+    type: grid
+    cards:
+      - type: custom:mini-graph-card
+        name: Office Temp
+        align_header: left
+        align_icon: left
+        entities:
+          - entity: sensor.temperature_and_humidity_sensor_temperature_3
+          - entity: sensor.temperature_and_humidity_sensor_humidity_3
+            show_graph: false
+            show_state: true
+            show_points: false
+        color_thresholds:
+          - value: 85.2
+            color: "#eb4d54"
+          - value: 79.8
+            color: "#1db954"
+          - value: 64.4
+            color: "#3a8df7"
+        font_size: 85
+        hours_to_show: 48
+        hour24: false
+        icon: mdi:office-building
+        points_per_hour: 0.5
+        show:
+          extrema: true
+          fill: fade
+      - type: custom:mini-graph-card
+        name: Office Light Level
+        align_header: left
+        align_icon: left
+        entities:
+          - entity: sensor.presence_sensor_fp2_175a_light_sensor_light_level
+            name: office LUX
+        color_thresholds:
+          - value: 20
+            color: "#eb4d54"
+          - value: 50
+            color: "#1db954"
+          - value: 90
+            color: "#3a8df7"
+        font_size: 85
+        hours_to_show: 24
+        hour24: false
+        icon: mdi:lightbulb
+        points_per_hour: 0.5
+        show:
+          extrema: true
+          fill: fade
+    columns: 2
