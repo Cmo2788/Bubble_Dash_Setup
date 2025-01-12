@@ -1,0 +1,29 @@
+type: custom:bubble-card
+card_type: button
+button_type: state
+entity: person.chris
+force_icon: false
+show_last_changed: true
+show_attribute: false
+attribute: user_id
+sub_button:
+  - entity: sensor.sm_f926u_battery_level
+    name: Phone Battery
+    icon: mdi:cellphone-charging
+    show_state: true
+  - entity: sensor.chris_galaxy_watch_battery_level
+    show_state: true
+    show_last_changed: false
+    icon: mdi:watch
+    show_attribute: false
+    name: Watch Battery
+  - entity: sensor.chris_galaxy_watch_heart_rate
+    show_state: true
+    show_name: false
+  - entity: sensor.chris_galaxy_watch_daily_steps
+    show_state: true
+card_layout: large-2-rows
+button_action:
+  tap_action:
+    action: navigate
+    navigation_path: "#pop-up-chris"
