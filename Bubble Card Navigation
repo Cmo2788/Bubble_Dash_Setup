@@ -1,0 +1,54 @@
+type: vertical-stack
+cards:
+  - type: custom:bubble-card
+    card_type: horizontal-buttons-stack
+    auto_order: true
+    1_name: Outside Zone
+    1_link: "#pop-up-outside"
+    1_entity: light.outside_lights
+    1_pir_sensor: binary_sensor.front_door_sensor
+    1_icon: phu:rooms-porch
+    2_link: "#pop-up-dining"
+    2_name: Dining Room
+    2_icon: phu:rooms-dining
+    2_entity: light.dining_room_lights
+    2_pir_sensor: binary_sensor.front_door_sensor
+    3_link: "#pop-up-down-bath-room"
+    3_name: Downstairs Bathroom
+    3_icon: mdi:toilet
+    3_entity: light.downstairs_bathroom_lights
+    3_pir_sensor: binary_sensor.downstairs_bathroom_door
+    4_link: "#pop-up-office"
+    4_name: Office
+    4_icon: mdi:office-building
+    4_entity: light.office_lights
+    4_pir_sensor: binary_sensor.presence_sensor_fp2_175a_presence_sensor_1
+    5_link: "#pop-up-kitchen"
+    5_name: Kitchen
+    5_icon: phu:rooms-kitchen
+    5_entity: light.kitchen_lights
+    5_pir_sensor: input_boolean.kitchen_dot_ultrasonic_motion
+    6_link: "#pop-up-living-room"
+    6_name: Living Room
+    6_icon: hue:room-living
+    6_entity: light.living_room_lights
+    6_pir_sensor: binary_sensor.presence_sensor_fp2_f9d6_presence_sensor_1
+    7_link: "#pop-up-hallways"
+    7_name: Hallways
+    7_icon: hue:room-stairs
+    7_entity: light.hallway
+    7_pir_sensor: binary_sensor.motion_sensor
+    8_link: "#pop-up-master-bedroom"
+    8_name: Master Bedroom
+    8_icon: mdi:bed-king
+    8_entity: light.master_bedroom_lights
+    8_pir_sensor: binary_sensor.master_bedroom_deck_sensor
+    9_link: "#pop-up-lynn-bedroom"
+    9_name: Lynns Bedroom
+    9_icon: mdi:bed-double
+    9_entity: light.lynns_lights
+    highlight_current_view: true
+    10_link: "#pop-up-theresa-bedroom"
+    10_name: Theresas Bedroom
+    10_icon: mdi:bed-double
+    10_entity: light.theresas_lights
