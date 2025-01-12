@@ -1,0 +1,44 @@
+type: custom:auto-entities
+show_empty: false
+card:
+  type: entities
+  card_mod:
+    style: |
+      .card-header {
+        background-color: black;
+        color: orange;
+        padding-top: 0px;
+        padding-bottom: 0px;
+      }
+filter:
+  include:
+    - entity_id: media_player.plex*
+      state: /playing|paused|'on'/
+      options:
+        card_type: markdown
+        theme: plex
+        card_mod:
+          style: |
+            ha-card.type-markdown {
+              background-image: url('/local/various/plex.png');
+              background-position: right;
+              background-size: contain;
+              background-repeat: no-repeat;
+              box-shadow: none;
+              color: silver;
+              margin: 8px -16px -16px -16px;
+            }
+        content: >
+          {% set player = config.entity %} {% if states(player) not in
+          ['unknown','unavailable'] %} <font color='orange'>**User:**</font>
+          {{state_attr(player,'username')}} {% for attr in
+          states[player].attributes %}
+            {%- if not attr in ['media_content_id','icon','entity_picture','hide_attributes',
+                                'media_position_updated_at','media_duration','media_position',
+                                'player_source','media_content_rating',
+                                'is_volume_muted','username','friendly_name','volume_level',
+                                'supported_features'] %}
+           <font color=orange> **- {{attr.split('media_')[1]|replace('_',' ')|title}}:**</font> {{states[player].attributes[attr]|title}} {% endif %}
+          {%- endfor %} {% else %} Nothing playing {% endif %}
+      sort:
+        method: name
