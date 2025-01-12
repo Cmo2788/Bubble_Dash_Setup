@@ -1,0 +1,51 @@
+square: true
+type: grid
+cards:
+  - type: custom:mini-graph-card
+    name: Lynn's Room Temp
+    align_header: left
+    align_icon: left
+    entities:
+      - entity: sensor.chris_s_echo_dot_temperature
+        name: Lynn's Room
+        show_graph: true
+        show_state: true
+        show_points: false
+    color_thresholds:
+      - value: 75.2
+        color: "#eb4d54"
+      - value: 69.8
+        color: "#1db954"
+      - value: 64.4
+        color: "#3a8df7"
+    font_size: 80
+    hours_to_show: 48
+    hour24: false
+    icon: mdi:bed
+    points_per_hour: 0.5
+    show:
+      extrema: true
+      fill: fade
+  - type: custom:mini-graph-card
+    name: Theresa's Room Temp
+    align_header: left
+    align_icon: left
+    entities:
+      - entity: sensor.theresa_s_echo_temperature
+        name: Theresa's Room
+    color_thresholds:
+      - value: 75.2
+        color: "#eb4d54"
+      - value: 69.8
+        color: "#1db954"
+      - value: 64.4
+        color: "#3a8df7"
+    font_size: 80
+    hours_to_show: 48
+    hour24: false
+    icon: mdi:bed
+    points_per_hour: 0.5
+    show:
+      extrema: true
+      fill: fade
+columns: 2
