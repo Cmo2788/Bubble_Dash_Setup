@@ -1,0 +1,141 @@
+type: custom:mushroom-chips-card
+chips:
+  - type: conditional
+    conditions:
+      - condition: numeric_state
+        entity: sensor.weatheralerts_1
+        above: 0
+    chip:
+      type: entity
+      entity: sensor.weatheralerts_1
+      icon_color: red
+      tap_action:
+        action: navigate
+        navigation_path: "#pop-up-alerts"
+  - type: weather
+    entity: weather.home_weather
+    show_conditions: true
+    show_temperature: true
+  - type: conditional
+    conditions:
+      - condition: state
+        entity: binary_sensor.motion_sensor
+        state: "on"
+    chip:
+      type: entity
+      entity: binary_sensor.motion_sensor
+      content_info: name
+      icon_color: red
+      use_entity_picture: false
+      name: Steps
+  - type: conditional
+    conditions:
+      - condition: state
+        entity: binary_sensor.motion_sensor_2
+        state: "on"
+    chip:
+      type: entity
+      entity: binary_sensor.motion_sensor_2
+      content_info: name
+      icon_color: red
+      use_entity_picture: false
+      name: Laundry Room
+  - type: conditional
+    conditions:
+      - condition: state
+        entity: binary_sensor.front_door_sensor
+        state: "on"
+    chip:
+      type: entity
+      entity: binary_sensor.front_door_sensor
+      name: Front Door
+      icon_color: red
+      content_info: name
+  - type: conditional
+    conditions:
+      - condition: state
+        entity: binary_sensor.master_bedroom_deck_sensor
+        state: "on"
+    chip:
+      type: entity
+      entity: binary_sensor.master_bedroom_deck_sensor
+      content_info: name
+      name: " Back Deck"
+      icon_color: red
+  - type: conditional
+    conditions:
+      - condition: state
+        entity: binary_sensor.wyze_cam_dining_room_cam_motion
+        state: "on"
+    chip:
+      type: entity
+      entity: binary_sensor.wyze_cam_dining_room_cam_motion
+      content_info: name
+      name: Dining Motion
+  - type: conditional
+    conditions:
+      - condition: numeric_state
+        entity: sensor.blitzortung_lightning_counter
+        above: 1
+    chip:
+      type: entity
+      entity: sensor.blitzortung_lightning_counter
+      icon_color: accent
+  - type: conditional
+    conditions:
+      - condition: state
+        entity: update.home_assistant_core_update
+        state: "on"
+    chip:
+      type: entity
+      entity: update.home_assistant_core_update
+      tap_action:
+        action: navigate
+        navigation_path: /new-mobile-dash/mini_pc
+      icon: mdi:home-assistant
+      name: Core Update
+      content_info: name
+      icon_color: red
+  - type: conditional
+    conditions:
+      - condition: state
+        entity: update.home_assistant_operating_system_update
+        state: "on"
+    chip:
+      type: entity
+      entity: update.home_assistant_operating_system_update
+      tap_action:
+        action: navigate
+        navigation_path: /new-mobile-dash/mini_pc
+      icon: mdi:home-assistant
+      name: OS Update
+      content_info: name
+      icon_color: red
+  - type: conditional
+    conditions:
+      - condition: state
+        entity: update.home_assistant_supervisor_update
+        state: "on"
+    chip:
+      type: entity
+      entity: update.home_assistant_supervisor_update
+      tap_action:
+        action: navigate
+        navigation_path: /new-mobile-dash/mini_pc
+      icon: mdi:home-assistant
+      name: Supervisor Update
+      content_info: name
+      icon_color: red
+  - type: conditional
+    conditions:
+      - condition: state
+        entity: light.laundry_room_switch_1
+        state: "on"
+    chip:
+      type: light
+      entity: light.laundry_room_switch_1
+      tap_action:
+        action: toggle
+      name: Laundry Room
+      content_info: name
+      use_light_color: false
