@@ -1,0 +1,18 @@
+type: custom:mini-graph-card
+name: Boiler Runtime and Calls for Heat (24h)
+align_header: left
+align_icon: left
+entities:
+  - entity: sensor.heat_runtime
+    name: Runtime (hours)
+    color: "#1db954"
+  - entity: sensor.heat_calls
+    name: Calls
+    color: "#eb4d54"
+    show_graph: true
+    show_state: true
+hours_to_show: 24
+hour24: false
+points_per_hour: 0.5
+show:
+  fill: fade
