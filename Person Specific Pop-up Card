@@ -1,0 +1,51 @@
+type: vertical-stack
+cards:
+  - type: custom:bubble-card
+    card_type: pop-up
+    hash: "#pop-up-chris"
+    button_type: state
+    name: ""
+    card_layout: large-2-rows
+    entity: person.chris
+  - type: map
+    entities:
+      - entity: person.chris
+    theme_mode: auto
+    hours_to_show: 168
+  - type: horizontal-stack
+    cards:
+      - type: custom:bubble-card
+        card_type: button
+        entity: sensor.sm_f926u_battery_level
+        button_type: state
+        name: Phone
+        icon: mdi:cellphone-charging
+        tap_action:
+          action: toggle
+      - type: custom:bubble-card
+        card_type: button
+        entity: sensor.sm_f926u_wifi_connection
+        button_type: state
+        name: Wifi Info
+        icon: mdi:cellphone-wireless
+        tap_action:
+          action: toggle
+        show_attribute: true
+  - type: horizontal-stack
+    cards:
+      - type: custom:bubble-card
+        card_type: button
+        entity: sensor.chris_galaxy_watch_battery_level
+        button_type: state
+        name: Watch
+        icon: mdi:watch
+        tap_action:
+          action: toggle
+        card_layout: normal
+      - type: custom:bubble-card
+        card_type: button
+        button_type: state
+        entity: sensor.chris_galaxy_watch_heart_rate
+        name: Chris' Heart Rate
+        show_last_changed: true
+        show_attribute: false
