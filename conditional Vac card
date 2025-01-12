@@ -1,0 +1,16 @@
+type: custom:mushroom-vacuum-card
+entity: vacuum.lightning_mcclean
+name: Lightning McClean
+icon_animation: true
+commands:
+  - start_pause
+  - stop
+  - return_home
+fill_container: true
+visibility:
+  - condition: state
+    entity: vacuum.lightning_mcclean
+    state: cleaning
+grid_options:
+  columns: 12
+  rows: 2
